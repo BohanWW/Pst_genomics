@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#SBATCH --job-name=Yr-91-02_HaplotypeCaller
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#Use HaplotypeCaller to genereate VariantCallFile for isolate
+gatk --java-options "-Xmx4g" HaplotypeCaller --reference pst130_full.fna --sample-ploidy 2 --input 05_Yr-91-02_readsgrouped.bam --output Yr-91-02.g.vcf.gz --emit-ref-confidence GVCF
+
+
+#organize
+mkdir $1
+mkdir gvcf
+cp $1.g.vcf.gz gvcf/
+mv $1.g.vcf.gz $1/
+mv *$1* $1/ 
