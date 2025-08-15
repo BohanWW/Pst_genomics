@@ -1,4 +1,4 @@
-#This file is used to prepare a reference genome for use in generating variant call files
+This file is used to prepare a reference genome for use in generating variant call files
 conda activate gatk
 #Index the reference genome Pt-1C-BFP supercontigs, index here is 'broad' short for BroadInstitute who sequenced Pt-1C-BFP
 # $1 = reference fasta; $2 isolate name
