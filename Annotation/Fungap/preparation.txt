@@ -1,0 +1,14 @@
+### Preparing protein database 
+python download_sister_orgs.py \
+--download_dir sister_orgs \
+--taxon "Puccinia striiformis f. sp. tritici" \
+--num_sisters 5 \
+--email_address mbnmbn00@gmail.com
+#after running, check the directory, combine all fasta files into one
+cd sister_orgs/
+zcat GCA_002873275.1_protein.faa GCA_002920065.1_protein.faa GCA_002920205.1_protein.faa > prot_db.faa
+### Augustus species model
+#Augustus gene predictor requires to select pre-defined species model. 
+python $FUNGAP_DIR/get_augustus_species.py \
+ 	 --genus_name "Schizophyllum" \
+  --email_address mbnmbn00@gmail.com
